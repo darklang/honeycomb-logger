@@ -41,6 +41,12 @@ called 'sandbox', stdout from the container looks like:
 sandbox [{"data":{"bar":3},"time":"2020-05-15T18:27:53.167828126Z"},{"data":{"alpha":"a","beta":"b"},"time":"2020-05-15T18:27:53.167971161Z"},{"data":{"foo":1},"time":"2020-05-15T18:27:53.167979722Z"},{"data":{"last":"done"},"time":"2020-05-15T18:27:53.168155905Z"}]
 ```
 
+## Implementation details
+
+Nginx can sit as a proxy between the honeycomb client and the honeycomb API.
+Requests from the client may be gzipped; we use a lua plugin to inflate the body
+and make that data available to nginx, which then logs it to stdout.
+
 ## Development & testing
 1. To build: `docker build -t honeycomb-logger -f honeycomb-logger.Dockerfile .`
 
