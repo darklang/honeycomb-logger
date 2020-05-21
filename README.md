@@ -13,9 +13,14 @@ We provide Dockerfile containing an nginx proxy that does this.
 
 You must provide the container with a `DATASETS_TO_LOG` env var. It may be
 either a pipe-delimited list of datasets:
-`dataset1|dataset2|dataset3`
+```
+dataset1|dataset2|dataset3
+```
+
 or a match-all:
-`.*`
+```
+.*
+```
 
 Then, override your honeycomb client's `API Host` to point at the nginx proxy,
 on port 8010; depending on your client, this might be an env var, a key in yaml
