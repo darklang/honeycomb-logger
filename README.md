@@ -7,6 +7,9 @@ longer-term storage); we want this split to happen _after_ the Honeycomb client
 (whether it's honeytail or honeycomb-kubernetes-agent or a beeline) does any
 processing.
 
+Thus, we send events both to Honeycomb and to stdout for capture by other
+log-collection tools.
+
 ## Use
 
 We provide Dockerfile containing an nginx proxy that does this.
